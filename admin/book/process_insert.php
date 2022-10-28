@@ -1,11 +1,11 @@
 <?php 
 
-$idBook = $_POST['idBook'];
-$title = $_POST['title'];
-$author = $_POST['author'];
+$idBook = addslashes($_POST['idBook']);
+$title = addslashes($_POST['title']);
+$author = addslashes($_POST['author']);
 $totalPage = $_POST['totalPage'];
 $dateRelease = $_POST['dateRelease'];
-$description = $_POST['description'];
+$description = addslashes($_POST['description']);
 $category = $_POST['category'];
 $image = $_POST['image'];
 

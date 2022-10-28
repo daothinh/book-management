@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Giao diện quản lý sách</h1>
+    <a href="form_insert.php">Thêm sách</a>
     <?php 
     include "../menu.php";
     require "../connect.php";
