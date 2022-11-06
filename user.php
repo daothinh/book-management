@@ -1,6 +1,7 @@
 <?php session_start(); 
 if(empty($_SESSION['id'])){
-    header('location:signin.php?error=Bạn cần đăng nhập.');
+    $_SESSION['error'] = 'Bạn cần đăng nhập';
+    header('location:signin.php');
 }
 ?>
 <!DOCTYPE html>

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -17,8 +18,9 @@ if($number_rows == 1){
     $_SESSION['id'] = $each['id'];
     $_SESSION['name'] = $each['name'];
 
-    header('location:user.php');
+    // header('location:user.php');
+    header('location:admin/book');
     exit;
 }
-
-header('location:signin.php?error=Email hoặc mật khẩu sai.');
+$_SESSION['error'] = 'Địa chỉ email hoặc mật khẩu không trùng khớp';
+header('location:signin.php');

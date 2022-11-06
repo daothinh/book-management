@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $name = $_POST["name"];
 $email = $_POST["email"];
@@ -9,10 +10,11 @@ require 'admin/connect.php';
 $sql = "select count(*) from customers
 where email = '$email'";
 $result = mysqli_query($connect, $sql);
-$number_rows = mysqli_fetch_array($result)['count(*)'];
+$number_rows = mysqli_fetch_array($result)['count(*)']; //lấy giá trị cột count(*)
 
 if($number_rows == 1){
-    header('location:signup.php?error=Email này đã được sử dụng.');
+    $_SESSION['error'] = 'Email này đã được sử dụng';
+    header('location:signup.php');
     exit;
 }
 
@@ -25,10 +27,10 @@ where email='$email'";
 $result = mysqli_query($connect, $sql);
 $id = mysqli_fetch_array($result)['id'];
 
-session_start();
 $_SESSION['id'] = $id;
 $_SESSION['name'] = $name;
 
-header('location:user.php');
+// header('location:user.php');
+header('location:admin/book');
 mysqli_close($connect);
 
